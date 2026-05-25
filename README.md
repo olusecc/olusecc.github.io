@@ -38,4 +38,4 @@ npx @tailwindcss/cli --input ./src/style.css --output ./dist/output.css
 After running the commands, access the Command Palette in VS Code `(Ctrl + Shift + P)` then select "Live Server: Open with Live Server" for a live preview on your default browser.
 
 ## Samples
-- [Wallace S. Msagusa](https://wallace-stev.github.io)
+- [Oluwole A. Adewusi](https://olusecc.github.io)
