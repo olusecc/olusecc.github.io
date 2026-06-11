@@ -1047,6 +1047,10 @@
     }
   }
 }
+:root {
+  --font-sans: Arial, sans-serif;
+  --font-mono: Arial, sans-serif;
+}
 body {
   font: 92%/1.8 Arial, sans-serif;
   max-width: 140ch;
