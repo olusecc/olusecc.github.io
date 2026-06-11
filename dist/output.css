@@ -1,7 +1,4 @@
 /*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -1051,7 +1048,7 @@
   }
 }
 body {
-  font: 92%/1.8 'Space Mono', monospace;
+  font: 92%/1.8 Arial, sans-serif;
   max-width: 140ch;
   margin-inline: max(1em, (100% - 140ch) / 2);
   color: var(--color-gray-800);
@@ -1066,7 +1063,7 @@ ul {
 nav {
   display: flex;
   font-weight: 500;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: Arial, sans-serif;
   letter-spacing: 0.075ch;
 }
 .nav-list {
@@ -1107,7 +1104,7 @@ header p {
 }
 h1, h2, h3 {
   color: var(--color-neutral-900);
-  font-family: 'Inconsolata', monospace;
+  font-family: Arial, sans-serif;
 }
 h1 {
   font-size: 2em;
@@ -1179,7 +1176,7 @@ main section h2 {
   body {
     max-width: 92%;
     margin-inline: auto;
-    font: 88%/1.8 'Space Mono', monospace;
+    font: 88%/1.8 Arial, sans-serif;
   }
   .hamburger {
     display: flex;
