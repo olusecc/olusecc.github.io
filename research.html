@@ -223,22 +223,25 @@
 	<script>
 		window.researchData = {
 			'paper-1': {
-				bibtex: `@inproceedings{adewusi2026mobilemoney,
-  author    = {Adewusi, Oluwole and Gueye, Assane and Msagusa, Wallace S. and Ndibwile, Jema David and Nkundineza, David and Obadofin, Okemawo and Rutaremara, Wilson and Ur, Blase},
-  title     = {{Security and Privacy Considerations for Confirming Payments in Rwandan Mobile Money Systems}},
-  booktitle = {35th USENIX Security Symposium (USENIX Security 2026)},
-  year      = {2026},
-  publisher = {USENIX Association}
+				bibtex: `@inproceeding{adewusi2026,
+  author = {Adewusi, Oluwole A. and Gueye, Assane and Msagusa, Wallace S. and Ndibwile, Jema David and Nkundineza, David and Obadofin, Okemawo and Rutaremara, Wilson and Ur, Blase},
+  title  = {{Security and Privacy Considerations for Confirming Payments in Rwandan Mobile Money Systems}},
+  note   = {usenix  2026. Affiliations: Carnegie Mellon University Africa and University of Chicago},
+  year   = {2026}
 }`,
 				abstract: `Mobile money (MoMo) services let users pay individual merchants or businesses using either a smartphone or a basic phone. They are widely used for commerce in African countries, including Rwanda. To better understand the security and privacy aspects of how Rwandan businesses confirm MoMo payments in practice, we interviewed 30 Rwandan business owners and employees. While MoMo services send payment confirmations over SMS to both senders (customers) and recipients (merchants), we found that merchants often inspect confirmation messages on customers' phones, not their own. The reasons included confirmation messages being sent only to business owners' (not employees') phones, busy markets, phones being physically unavailable, and delayed SMS delivery. Trust also played a major role. As the customer controls their phone, this workaround can enable fraud via screenshots of past messages or spoofed confirmations. As these confirmation messages include customers' account balances, participants also reported privacy concerns. In response, we investigated the design space of alternative workflows, finding promise in redesigning customers' confirmation screens to remove private information and to add a secret known only to the merchant. We reflect on designing for security and privacy under the unique constraints of Sub-Saharan Africa.`
 			},
 			'paper-2': {
-				bibtex: `@inproceedings{adewusi2025beyondSSO,
-  author    = {Adewusi, Oluwole and Msagusa, Wallace S. and Imanirumva, Jean Pierre and Obadofin, Okemawo and Ndibwile, Jema D.},
-  title     = {{Beyond SSO: Mobile Money Authentication for Inclusive e-Government in Sub-Saharan Africa}},
-  booktitle = {Proceedings of the 22nd Annual International Conference on Privacy, Security and Trust (PST)},
-  year      = {2025},
-  address   = {Fredericton, Canada}
+				bibtex: `@INPROCEEDINGS{11268840,
+  author={Adewusi, Oluwole and Msagusa, Wallace S. and Imanirumva, Jean Pierre and Obadofin, Okemawo and Ndibwile, Jema D.},
+  booktitle={2025 22nd Annual International Conference on Privacy, Security, and Trust (PST)},
+  title={Beyond SSO: Mobile Money Authentication for Inclusive e-Government in Sub-Saharan Africa},
+  year={2025},
+  volume={},
+  number={},
+  pages={1-11},
+  keywords={Threat modeling;Multi-factor authentication;Scalability;Phishing;Authentication;Africa;Pins;Digital divide;Usability;Electronic government;Mobile Money Authentication (MMA);eGovernment;Sub-Saharan Africa;Multi-Factor Authentication;USSD;Single Sign-On (SSO)},
+  doi={10.1109/PST65910.2025.11268840}
 }`,
 				abstract: `The rapid adoption of Mobile Money Services (MMS) in Sub-Saharan Africa (SSA) offers a viable path to improve e-Government service accessibility in the face of persistent low internet penetration. However, existing Mobile Money Authentication (MMA) methods face critical limitations, including susceptibility to SIM swapping, weak session protection, and poor scalability during peak demand. This study introduces a hybrid MMA framework that combines Unstructured Supplementary Service Data (USSD)-based multi-factor authentication with secure session management via cryptographically bound JSON Web Tokens (JWT). Unlike traditional MMA systems that rely solely on SIM-PIN verification or smartphone-dependent biometrics, our design implements a three-factor authentication model; SIM verification, PIN entry, and session token binding, tailored for resource-constrained environments. Simulations and comparative analysis against OAuth-based Single Sign-On (SSO) methods reveal a 45% faster authentication time (8 seconds vs. 12-15 seconds), 15% higher success under poor network conditions (95% vs. 80%), and increased resistance to phishing and brute-force attacks. Penetration testing and threat modeling further demonstrate a substantial reduction in vulnerability exposure compared to conventional approaches. The primary contributions of this work are: (1) a hybrid authentication protocol that ensures offline accessibility and secure session continuity; (2) a tailored security framework addressing threats like SIM swapping and social engineering in SSA; and (3) demonstrated scalability for thousands of users with reduced infrastructure overhead. The proposed approach advances secure digital inclusion in SSA and other regions with similar constraints.`
 			}
