@@ -853,6 +853,13 @@
       }
     }
   }
+  .hover\:text-violet-700 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-violet-700);
+      }
+    }
+  }
   .hover\:text-violet-800 {
     &:hover {
       @media (hover: hover) {
