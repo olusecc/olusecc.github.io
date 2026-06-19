@@ -115,11 +115,67 @@ function initializeModals() {
 		}
 	});
 	
-	// Handle form submissions
+	// Handle form submissions — only hook submit event, fired by button click
 	const contactForm = document.getElementById('contactForm');
-	
 	if (contactForm) {
-		contactForm.addEventListener('submit', handleContactForm);
+		let formSubmitted = false;
+
+		contactForm.addEventListener('submit', async function(e) {
+			e.preventDefault();
+			// Block if already submitted or mid-flight
+			if (formSubmitted) return;
+
+			const submitBtn = document.getElementById('contactSubmitBtn');
+			const resultDiv = document.getElementById('contactResult');
+
+			// Lock immediately
+			formSubmitted = true;
+			submitBtn.disabled = true;
+			submitBtn.textContent = 'Sending…';
+			resultDiv.className = 'hidden';
+			resultDiv.textContent = '';
+
+			try {
+				const response = await fetch('https://api.web3forms.com/submit', {
+					method: 'POST',
+					body: new FormData(contactForm)
+				});
+				const json = await response.json();
+
+				if (json.success) {
+					resultDiv.textContent = '✓ Message sent! I\'ll get back to you soon.';
+					resultDiv.className = 'text-sm text-center rounded-md px-3 py-2 bg-green-100 text-green-800 border border-green-400';
+					contactForm.reset();
+					submitBtn.textContent = 'Sent ✓';
+					setTimeout(() => closeAllModals(), 2500);
+				} else {
+					// Allow retry on API error
+					formSubmitted = false;
+					submitBtn.disabled = false;
+					submitBtn.textContent = 'Send Message';
+					resultDiv.textContent = '✗ Something went wrong. Please try again or email me directly.';
+					resultDiv.className = 'text-sm text-center rounded-md px-3 py-2 bg-red-100 text-red-800 border border-red-400';
+				}
+			} catch (err) {
+				// Allow retry on network error
+				formSubmitted = false;
+				submitBtn.disabled = false;
+				submitBtn.textContent = 'Send Message';
+				resultDiv.textContent = '✗ Network error. Please check your connection and try again.';
+				resultDiv.className = 'text-sm text-center rounded-md px-3 py-2 bg-red-100 text-red-800 border border-red-400';
+			}
+		});
+
+		// Reset submitted flag when modal is reopened
+		document.addEventListener('click', function(e) {
+			if (e.target.closest('a[href="#"]') && e.target.closest('a[href="#"]').textContent.trim() === 'Contact Me') {
+				formSubmitted = false;
+				const submitBtn = document.getElementById('contactSubmitBtn');
+				if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Message'; }
+				const resultDiv = document.getElementById('contactResult');
+				if (resultDiv) { resultDiv.className = 'hidden'; resultDiv.textContent = ''; }
+			}
+		});
 	}
 	
 	// Close modals with Escape key
