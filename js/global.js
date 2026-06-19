@@ -207,31 +207,44 @@ function initializeResearchModals() {
 	}
 }
 
-// Handle contact form submission
-function handleContactForm(e) {
+// Handle contact form submission via Web3Forms
+async function handleContactForm(e) {
 	e.preventDefault();
-	
-	const formData = new FormData(e.target);
-	const data = {
-		title: formData.get('title'),
-		name: formData.get('name'),
-		email: formData.get('email'),
-		organization: formData.get('organization'),
-		purpose: formData.get('purpose'),
-		subject: formData.get('subject'),
-		message: formData.get('message'),
-		subscribe: formData.get('subscribe')
-	};
-	
-	// Here you would typically send the data to your backend
-	console.log('Contact Form:', data);
-	
-	// Show success message (you can customize this)
-	alert('Thank you for your message! I will get back to you soon.');
-	
-	// Close modal and reset form
-	closeAllModals();
-	e.target.reset();
+
+	const form = e.target;
+	const submitBtn = document.getElementById('contactSubmitBtn');
+	const resultDiv = document.getElementById('contactResult');
+
+	// Loading state
+	submitBtn.disabled = true;
+	submitBtn.textContent = 'Sending…';
+	resultDiv.classList.add('hidden');
+
+	try {
+		const formData = new FormData(form);
+		const response = await fetch('https://api.web3forms.com/submit', {
+			method: 'POST',
+			body: formData
+		});
+		const json = await response.json();
+
+		if (json.success) {
+			resultDiv.textContent = '✓ Message sent! I\'ll get back to you soon.';
+			resultDiv.className = 'text-sm text-center rounded-md px-3 py-2 bg-green-100 text-green-800 border border-green-400';
+			form.reset();
+			setTimeout(() => closeAllModals(), 2500);
+		} else {
+			resultDiv.textContent = '✗ Something went wrong. Please try again or email me directly.';
+			resultDiv.className = 'text-sm text-center rounded-md px-3 py-2 bg-red-100 text-red-800 border border-red-400';
+		}
+	} catch (err) {
+		resultDiv.textContent = '✗ Network error. Please check your connection and try again.';
+		resultDiv.className = 'text-sm text-center rounded-md px-3 py-2 bg-red-100 text-red-800 border border-red-400';
+	}
+
+	// Restore button
+	submitBtn.disabled = false;
+	submitBtn.textContent = 'Send Message';
 }
 
 // Set current page class based on current URL
