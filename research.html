@@ -243,11 +243,18 @@
 					</p>
 
 					<!-- Links -->
-					<div class="mt-3 md:mt-4 flex flex-wrap items-center gap-1">
-						<a href="./docs/FinalProject_Thesis.pdf" target="_blank"
-							class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-violet-600 font-medium bg-white border border-violet-500 rounded-sm hover:bg-violet-50 hover:text-violet-800">
-							<i class="fas fa-file-pdf text-xs" aria-hidden="true"></i> View PDF
-						</a>
+					<div class="mt-3 md:mt-4 flex flex-wrap items-center justify-between gap-y-1">
+						<div class="flex flex-wrap gap-1">
+							<a href="./docs/FinalProject_Thesis.pdf" target="_blank"
+								class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm text-violet-600 font-medium bg-white border border-violet-500 rounded-sm hover:bg-violet-50 hover:text-violet-800">
+								<i class="fas fa-file-pdf text-xs" aria-hidden="true"></i> View PDF
+							</a>
+						</div>
+						<button
+							class="abstract-btn inline-flex items-center gap-1 px-3 py-1.5 text-sm text-white font-medium bg-violet-700 rounded-sm focus:outline-none cursor-pointer"
+							data-id="paper-4">
+							Abstract <i class="fas fa-chevron-down text-xs transition-transform duration-200"></i>
+						</button>
 					</div>
 				</li>
 			</ol>
@@ -275,6 +282,13 @@
   year   = {2026}
 }`,
 				abstract: `Mobile money (MoMo) services let users pay individual merchants or businesses using either a smartphone or a basic phone. They are widely used for commerce in African countries, including Rwanda. To better understand the security and privacy aspects of how Rwandan businesses confirm MoMo payments in practice, we interviewed 30 Rwandan business owners and employees. While MoMo services send payment confirmations over SMS to both senders (customers) and recipients (merchants), we found that merchants often inspect confirmation messages on customers' phones, not their own. The reasons included confirmation messages being sent only to business owners' (not employees') phones, busy markets, phones being physically unavailable, and delayed SMS delivery. Trust also played a major role. As the customer controls their phone, this workaround can enable fraud via screenshots of past messages or spoofed confirmations. As these confirmation messages include customers' account balances, participants also reported privacy concerns. In response, we investigated the design space of alternative workflows, finding promise in redesigning customers' confirmation screens to remove private information and to add a secret known only to the merchant. We reflect on designing for security and privacy under the unique constraints of Sub-Saharan Africa.`
+			},
+			'paper-4': {
+				abstract: `Power is most important requirement for civilization. We know that because of large demand of electricity and due to limit capacity of power plant at generating station, power cut off is common for all us. Owing to limited amount of power generation at power station and due to shortage of non-renewable continuous supply source its beings a biggest challenge in Nigeria. If you see all around us you will observe that due to discontinuity of power supply, many problems have been faced by people in their everyday use. This type of power failure create problem for data centers, hospitals and some research work. This is a biggest reason that every country is researching for the work to supply a continuous power with good efficiency and with good regulation. In this project we can combine the renewable and non-renewable energy sources to get the continuous power supply such as mains, solar, inverter, petrol or diesel generator. The power cut of this source can be manually done by switches.
+
+The continuous supply to load can be given by automatic operation of relay, relay driver IC with the help of microcontroller. The main purpose of this project is to provide continuous power supply to a load, by selecting the supply from any of the four sources namely Mains, solar, inverter, and generator automatically in case if one the source is absent. The need of electricity is increasing day by day and the frequent power cuts of electricity are causing many problems in different areas like banks, colleges/schools, hospitals, houses and industries. Thus, there is requirement for an alternate arrangement of power supply.
+
+When a source, say Mains fails, the supply automatically shifts to next priority source. On failure of the Mains supply the load gets supply from the next available source, say an inverter. If the inverter also fails it switches over to the next available source and so on. As it is not feasible to provide all 3 different sources of supply, one source with alternate switches are provided to get the same function. The project can be further enhanced by using other sources like wind power also and then taking into consideration for using the best possible power whose tariff remains lowest at that moment.`
 			},
 			'paper-2': {
 				bibtex: `@INPROCEEDINGS{11268840,
